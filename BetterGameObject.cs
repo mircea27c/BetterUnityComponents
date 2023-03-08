@@ -27,14 +27,7 @@ public static class BetterGameObject
     public static void SetLayerAllChildren(this GameObject go, string _layer)
     {
         if (go == null) return;
-        go.layer = LayerMask.NameToLayer(_layer);
-        if (go.transform.childCount > 0)
-        {
-            for (int i = 0; i < go.transform.childCount; i++)
-            {
-                go.transform.GetChild(i).gameObject.SetLayerAllChildren(_layer);
-            }
-        }
+        go.SetLayerAllChildren(LayerMask.NameToLayer(_layer));
     }
 
     /// <summary>
